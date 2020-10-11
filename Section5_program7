@@ -1,0 +1,44 @@
+/* Finds the largest and lowest value within a series of 4 integers */
+
+#include <stdio.h>
+
+int main(void)
+{
+        int n1, n2, n3, n4, lowest, highest;
+        printf("Enter four integers: \n");
+        scanf("%d %d %d %d", &n1, &n2, &n3, &n4);
+
+        if (n1 > n2) //Comparison for n1 being higher or lower than n2
+                {
+                highest = n1;
+                lowest = n2;
+                }
+        else            //If n1 is lower, n2 becomes highest value
+                {
+                highest = n2;
+                lowest = n1;
+                }
+
+        if (n3 > highest) //n3 challenges highest value and overtakes if True
+                {
+                highest = n3;
+                }
+        else            //If n3 is lower, n3 competes for lowest value against previous competition
+                {
+                lowest = (n3 < lowest) ? n3 : lowest;
+                }
+
+        if (n4 > highest) //See above
+                {
+                highest = n4;
+                }
+        else            //See above
+                {
+                lowest= (n4 < lowest) ? n4 : lowest;
+                }
+
+        printf("Largest: %d\n", highest);
+        printf("Smallest: %d\n", lowest);
+
+                return 0;
+}
